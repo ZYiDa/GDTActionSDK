@@ -1,0 +1,26 @@
+plugins {
+    id 'maven-publish'
+}
+
+// 为 JitPack 提供 assemble 任务，避免报错
+tasks.register("assemble") {
+    doLast {
+        println("Nothing to assemble, using existing AAR.")
+    }
+}
+
+group = 'com.github.ZYiDa'
+version = '1.9.5'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId = 'GDTActionSDK'
+            artifact file('libs/GDTActionSDK.aar')
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
