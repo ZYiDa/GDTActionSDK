@@ -1,0 +1,19 @@
+plugins {
+    id 'maven-publish'
+}
+
+group = 'com.github.ZYiDa'
+version = '1.9.4'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId = 'GDTActionSDK'
+            artifact file('libs/GDTActionSDK.aar')
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
